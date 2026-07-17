@@ -4,10 +4,10 @@
     "display_name": "mary",
     "details": "این صفحه اختصاصی شماست. (ان را در دسترس کسی قرار ندهید!)"
   },
-  "ALI456": {
-    "template": "ali.html",
-    "display_name": "علی",
-    "details": "خوش اومدی علی جان!"
+  "tpn-matin1425": {
+    "template": "matin.html",
+    "display_name": "Matin",
+    "details": "این صفحه اختصاصی شماست. (ان را در دسترس کسی قرار ندهید!)"
   },
   "REZA789": {
     "template": "reza_private.html",
