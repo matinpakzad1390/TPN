@@ -1,0 +1,17 @@
+{
+  "tpn1300": {
+    "template": "mary.html",
+    "display_name": "mary",
+    "details": "این صفحه اختصاصی شماست. (ان را در دسترس کسی قرار ندهید!)"
+  },
+  "ALI456": {
+    "template": "ali.html",
+    "display_name": "علی",
+    "details": "خوش اومدی علی جان!"
+  },
+  "REZA789": {
+    "template": "reza_private.html",
+    "display_name": "رضا",
+    "details": "پنل ویژه رضا"
+  }
+}
