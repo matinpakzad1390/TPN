@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>ورود به پنل اختصاصی</title>
+    <style>
+        /* استایل‌های پایه‌ی دارک و نئونی */
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); /* گرادینتِ تیره و جذاب */
+            color: #e0e0e0; /* متن روشن */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* فونت مدرن */
+        }
+        .card {
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4); /* سایه‌ی عمیق‌تر */
+            background-color: rgba(36, 36, 62, 0.8); /* پس‌زمینه کارت نیمه‌شفاف */
+            border: none; /* حذف حاشیه‌ی پیش‌فرض */
+            padding: 40px;
+            width: 380px; /* کمی بزرگتر */
+            backdrop-filter: blur(5px); /* افکت بوکه (Blur) */
+        }
+        .card h3 {
+            color: #40e0d0; /* رنگ نئونیِ فیروزه‌ای */
+            text-shadow: 0 0 10px #40e0d0, 0 0 20px #40e0d0; /* درخشش نئونی */
+            margin-bottom: 30px;
+        }
+        .form-control {
+            background-color: rgba(0,0,0,0.3);
+            border: 1px solid #40e0d0; /* حاشیه‌ی نئونی */
+            color: #e0e0e0;
+            border-radius: 10px;
+            padding: 12px;
+        }
+        .form-control::placeholder {
+            color: #aaa;
+        }
+        .btn-primary {
+            background-color: #e0115f; /* رنگ نئونیِ صورتی/سرخابی */
+            border-color: #e0115f;
+            border-radius: 10px;
+            padding: 12px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #ff4081;
+            border-color: #ff4081;
+            box-shadow: 0 0 15px #ff4081;
+        }
+    </style>
+</head>
+<body>
+    <div class="card text-center">
+        <h3 class="mb-4">خوش امدید! کد خرید خود را وارد کنید:✨</h3>
+        <form method="post">
+            <input type="text" name="code" class="form-control mb-3" placeholder="کد اختصاصی..." required>
+            <button type="submit" class="btn btn-primary w-100">ورود به پنل کانفیگ</button>
+        </form>
+    </div>
+</body>
+</html>
