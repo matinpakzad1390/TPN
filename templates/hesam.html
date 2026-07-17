@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل اختصاصی کاربر</title>
+    <!-- استفاده از Bootstrap برای چیدمان سریع -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- فونت جذاب (اختیاری - اینجا از فونت سیستم استفاده شده) -->
+    <style>
+        :root {
+            --neon-color: #00f3ff; /* رنگ نئونی اصلی (آبی یخی) */
+            --neon-pink: #ff00e0;  /* رنگ نئونی دوم (صورتی) */
+            --bg-dark: #0a0a0a;    /* پس‌زمینه خیلی تیره */
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* افکت پس‌زمینه برای جذابیت بیشتر */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--neon-color);
+            filter: blur(150px);
+            opacity: 0.15;
+            top: 10%;
+            left: 10%;
+            z-index: -1;
+        }
+
+        /* کادر اصلی وسط صفحه (Glassmorphism) */
+        .main-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--neon-color);
+            text-shadow: 0 0 10px var(--neon-color);
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        /* باکس متن قابل کپی */
+        .copy-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px dashed var(--neon-pink);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 30px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .copy-box:hover {
+            box-shadow: 0 0 15px rgba(255, 0, 224, 0.3);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .copy-text {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            word-wrap: break-word;
+        }
+
+        .copy-hint {
+            font-size: 0.7rem;
+            color: var(--neon-pink);
+            margin-top: 8px;
+            display: block;
+        }
+
+        /* دکمه‌های دانلود نئونی */
+        .btn-download {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.4s ease;
+            border: 2px solid var(--neon-color);
+            color: var(--neon-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-download:hover {
+            background: var(--neon-color);
+            color: #000;
+            box-shadow: 0 0 25px var(--neon-color);
+            transform: translateY(-3px);
+        }
+
+        /* استایل برای زمانی که متن کپی شد */
+        .copied-toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--neon-pink);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-card">
+        <h2>خوش امدی! 👋</h2>
+
+        <!-- بخش متن قابل کپی -->
+        <div class="copy-box" onclick="copyToClipboard()">
+            <div class="copy-text" id="textToCopy">vless://2686681a-16f8-f7f7-ffb7-cc5fd5c51905@x4g-production-cb98.up.railway.app:443?encryption=none&security=tls&type=ws&host=x4g-production-cb98.up.railway.app&path=/ws/2686681a-16f8-f7f7-ffb7-cc5fd5c51905&sni=x4g-production-cb98.up.railway.app&fp=ios&alpn=http/1.1#X4G-H</div>
+            <span class="copy-hint">(کپی کردن کانفیگ)</span>
+        </div>
+
+        <!-- بخش دکمه‌های دانلود -->
+        <div class="download-links">
+            <a href="https://s34.picofile.com/file/8490941476/Android.zip.html" class="btn-download">v2ray Android</a>
+            <a href="YOUR_LINK_2" class="btn-download">v2ray Windows</a>
+            <a href="https://app-star.store/app.php?id=6446814690" class="btn-download" style="border-color: var(--neon-pink); color: var(--neon-pink);">v2ray IOS</a>
+        </div>
+    </div>
+
+    <!-- پیام تایید کپی شدن -->
+    <div id="toast" class="copied-toast">متن کپی شد! ✅</div>
+
+    <!-- جاوااسکریپت برای قابلیت کپی -->
+    <script>
+        function copyToClipboard() {
+            const text = document.getElementById('textToCopy').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                // نمایش پیام تایید
+                const toast = document.getElementById('toast');
+                toast.style.display = 'block';
+                
+                // مخفی کردن پیام بعد از ۲ ثانیه
+                setTimeout(() => {
+                    toast.style.display = 'none';
+                }, 2000);
+            }).catch(err => {
+                console.error('خطا در کپی کردن: ', err);
+            });
+        }
+    </script>
+
+</body>
+</html>
