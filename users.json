@@ -9,9 +9,9 @@
     "display_name": "Matin",
     "details": "این صفحه اختصاصی شماست. (ان را در دسترس کسی قرار ندهید!)"
   },
-  "REZA789": {
-    "template": "reza_private.html",
-    "display_name": "رضا",
-    "details": "پنل ویژه رضا"
+  "tpn-hesam1389": {
+    "template": "hesam.html",
+    "display_name": "Hesam",
+    "details": "این صفحه اختصاصی شماست. (ان را در دسترس کسی قرار ندهید!)"
   }
 }
